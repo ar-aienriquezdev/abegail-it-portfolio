@@ -1,26 +1,158 @@
+
 @import "tailwindcss";
 
+/* Global palette */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: dark;
+  --background: #100d16;
+  --foreground: #fff7fc;
+  --pink: #ff64b2;
+  --pink-soft: #ff9fd1;
+  --surface: #1a1221;
+  --surface-raised: #251b2d;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 96px;
+  background-color: #100d16;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  min-height: 100vh;
+  margin: 0;
+  background-color: #100d16;
+  color: #fff7fc;
   font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: #ff64b2;
+  color: #1a1221;
+}
+
+a, button, summary {
+  transition:
+    color 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+  outline: 3px solid #ff9fd1;
+  outline-offset: 4px;
+}
+
+/* Hero and Contact: dark plum with vibrant pink */
+.hero-surface {
+  background:
+    radial-gradient(
+      ellipse at 84% 37%,
+      rgba(255, 82, 174, 0.27),
+      transparent 36%
+    ),
+    radial-gradient(
+      ellipse at 4% 15%,
+      rgba(104, 43, 117, 0.38),
+      transparent 50%
+    ),
+    linear-gradient(
+      115deg,
+      #18111e 0%,
+      #24132c 55%,
+      #31152d 100%
+    );
+}
+
+/* About, Skills, Education */
+.section-glow {
+  background:
+    radial-gradient(
+      ellipse at 3% 8%,
+      rgba(255, 100, 178, 0.075),
+      transparent 46%
+    ),
+    linear-gradient(
+      180deg,
+      #130f1a 0%,
+      #100d16 100%
+    );
+}
+
+/* Subtle dotted texture for Experience */
+.timeline-surface {
+  background-color: #17111d;
+  background-image:
+    radial-gradient(
+      rgba(255, 129, 191, 0.09) 0.8px,
+      transparent 0.8px
+    );
+  background-size: 30px 30px;
+}
+
+/* Featured Projects: preserve existing styling */
+.project-surface {
+  background: linear-gradient(
+    145deg,
+    #251a2c 0%,
+    #19141f 64%,
+    #17111c 100%
+  );
+
+  border: 1px solid rgba(255, 133, 196, 0.27);
+
+  box-shadow:
+    0 20px 70px rgba(4, 2, 8, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.035);
+}
+
+.project-surface:hover {
+  border-color: rgba(255, 137, 196, 0.67);
+
+  box-shadow:
+    0 26px 82px rgba(5, 3, 9, 0.48),
+    0 0 0 1px rgba(255, 100, 178, 0.10);
+
+  transform: translateY(-4px);
+}
+
+/* Dark translucent panels */
+.glass-panel {
+  background: rgba(35, 24, 42, 0.90);
+  border: 1px solid rgba(255, 155, 204, 0.34);
+  backdrop-filter: blur(16px);
+}
+
+/* Decorative pink accent */
+.accent-line {
+  width: 58px;
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    #ff64b2,
+    #bc51de
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
 }

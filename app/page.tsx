@@ -87,7 +87,7 @@ const experiences = [
   {
     role: "Architectural Project Manager",
     company: "Gravis Design Studio",
-    dates: "Nov 2023 – Jun 2024",
+    dates: "Nov 2023 – Jun 2026",
     details:
       "Coordinated requirements, deliverables, budget considerations, stakeholder communication, and quality reviews.",
   },

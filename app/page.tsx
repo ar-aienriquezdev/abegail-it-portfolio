@@ -1,5 +1,7 @@
 import Image from "next/image";
 import BackToTop from "../components/BackToTop";
+import InteractiveDots from "../components/InteractiveDots";
+import TypewriterText from "../components/TypewriterText";
 
 type Project = {
   title: string;
@@ -69,8 +71,8 @@ const projects: Project[] = [
 ];
 
 const skills = [
-  { title: "Development", items: ["Python", "Java", "SQL", "TypeScript", "JavaScript", "React", "Next.js", "Django REST Framework"] },
-  { title: "Data & Analytics", items: ["Pandas", "scikit-learn", "Tableau", "Machine Learning", "Data Visualization", "DuckDB", "dbt", "Airflow"] },
+  { title: "Development", items: ["Python", "Java", "SQL", "TypeScript", "HTML", "CSS", "JavaScript", "React", "Next.js", "Django REST Framework"] },
+  { title: "Data & Analytics", items: ["Pandas", "scikit-learn", "Streamlit", "Tableau", "Power BI", "MS Excel", "Jupyter Notebook", "JASP", "DuckDB", "dbt", "Airflow"] },
   { title: "Systems & Tools", items: ["MySQL", "SQLite", "Git & GitHub", "JUnit", "Maven", "Docker", "AWS Cloud Foundations", "Windows Server"] },
 ];
 
@@ -245,7 +247,8 @@ export default function Home() {
       {/* HERO */}
       <section className="hero-surface relative isolate overflow-hidden bg-[#1b1224]" aria-labelledby="hero-title">
         <div className="pointer-events-none absolute -right-28 -top-32 h-[460px] w-[460px] rounded-full bg-[#f34d9b]/15 blur-3xl" />
-        <div className="mx-auto grid max-w-7xl items-center gap-10 px-5 pb-14 pt-16 sm:px-8 lg:min-h-[690px] lg:grid-cols-[1.08fr_.92fr] lg:px-10 lg:py-20">
+        <InteractiveDots />
+        <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-10 px-5 pb-14 pt-16 sm:px-8 lg:min-h-[690px] lg:grid-cols-[1.08fr_.92fr] lg:px-10 lg:py-20">
           <div className="relative z-10">
             <p className="mb-6 text-xs font-extrabold uppercase tracking-[0.2em] text-[#ff96ce] sm:text-sm">
               Software Development · Data Analytics · Design
@@ -254,7 +257,14 @@ export default function Home() {
               Where Code,<br />
               <span className="text-[#ff64b2]">Data</span> & Design<br />Meet.
             </h1>
-            <p className="mt-7 max-w-[570px] text-base leading-8 text-[#eadce8] sm:text-lg">
+            {/* Animated typewriter — complements the permanent headline */}
+            <div className="mt-6 flex min-h-10 flex-wrap items-baseline gap-x-3 gap-y-1 text-sm sm:text-base">
+              <span className="font-mono text-xs font-bold uppercase tracking-[0.14em] text-[#ff9fd1]">
+                I create
+              </span>
+              <TypewriterText />
+            </div>
+            <p className="mt-5 max-w-[570px] text-base leading-8 text-[#eadce8] sm:text-lg">
               I build data-driven applications, analytical systems, and digital experiences through software engineering, structured problem-solving, and thoughtful design.
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
@@ -287,8 +297,9 @@ export default function Home() {
       </section>
 
       {/* ABOUT: cut-out portrait + soft circular halo; no solid rectangular photo panel */}
-      <section id="about" className="section-glow bg-[#100d16] py-20 sm:py-28">
-        <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 sm:px-8 lg:grid-cols-[.78fr_1.22fr] lg:gap-16 lg:px-10">
+      <section id="about" className="section-glow relative isolate overflow-hidden bg-[#100d16] py-20 sm:py-28">
+        <InteractiveDots />
+        <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-12 px-5 sm:px-8 lg:grid-cols-[.78fr_1.22fr] lg:gap-16 lg:px-10">
           <div className="relative mx-auto w-full max-w-[430px]" aria-label="About portrait">
             {/* Soft circular background instead of a full pink rectangle */}
             <div className="pointer-events-none absolute inset-x-[6%] top-[14%] h-[72%] rounded-full bg-[#ff64b2]/20 blur-[68px]" aria-hidden="true" />
@@ -337,8 +348,9 @@ export default function Home() {
       </section>
 
       {/* SELECTED WORK */}
-      <section id="projects" className="border-y border-[#513349] bg-[#1a1221] py-20 sm:py-24">
-        <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+      <section id="projects" className="relative isolate overflow-hidden border-y border-[#513349] bg-[#1a1221] py-20 sm:py-24">
+        <InteractiveDots />
+        <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
           <SectionLabel number="02" title="Selected Work" />
           <div className="accent-line" />
           <h2 className="mt-5 text-3xl font-black tracking-tight text-white sm:text-5xl">Projects with purpose<span className="text-[#ff64b2]">.</span></h2>
@@ -356,8 +368,9 @@ export default function Home() {
       </section>
 
       {/* SKILLS */}
-      <section id="skills" className="section-glow bg-[#100d16] py-20 sm:py-24">
-        <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+      <section id="skills" className="section-glow relative isolate overflow-hidden bg-[#100d16] py-20 sm:py-24">
+        <InteractiveDots />
+        <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
           <SectionLabel number="03" title="Technical Skills" />
           <div className="accent-line" />
           <h2 className="mt-5 text-3xl font-black text-white sm:text-5xl">Tools I work with<span className="text-[#ff64b2]">.</span></h2>
@@ -378,9 +391,10 @@ export default function Home() {
       {/* PROFESSIONAL EXPERIENCE — editorial timeline inspired by the reference */}
       <section
         id="experience"
-        className="timeline-surface border-y border-[#513349] bg-[#17111d] py-20 sm:py-28"
+        className="timeline-surface relative isolate overflow-hidden border-y border-[#513349] bg-[#17111d] py-20 sm:py-28"
       >
-        <div className="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[0.85fr_1.4fr] lg:gap-20 lg:px-10">
+        <InteractiveDots />
+        <div className="relative z-10 mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[0.85fr_1.4fr] lg:gap-20 lg:px-10">
           {/* Left: introduction, stays in place as the timeline scrolls */}
           <div className="lg:sticky lg:top-28 lg:self-start">
             <SectionLabel number="04" title="Professional Experience" />
@@ -439,9 +453,10 @@ export default function Home() {
 {/* EDUCATION — spacious school-first editorial rows */}
 <section
   id="education"
-  className="section-glow bg-[#100d16] py-20 sm:py-24"
+  className="section-glow relative isolate overflow-hidden bg-[#100d16] py-20 sm:py-24"
 >
-  <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+  <InteractiveDots />
+  <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
     <SectionLabel number="05" title="Education & Licensure" />
 
     <div className="accent-line" />
@@ -599,8 +614,9 @@ export default function Home() {
 
 
       {/* CREDENTIALS */}
-      <section id="credentials" className="border-y border-[#513349] bg-[#1a1221] py-20 sm:py-24">
-        <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+      <section id="credentials" className="relative isolate overflow-hidden border-y border-[#513349] bg-[#1a1221] py-20 sm:py-24">
+        <InteractiveDots />
+        <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
           <SectionLabel number="06" title="Credentials & Training" />
           <div className="accent-line" />
           <h2 className="mt-5 text-3xl font-black text-white sm:text-5xl">Credentials that back the work<span className="text-[#ff64b2]">.</span></h2>
@@ -637,13 +653,14 @@ export default function Home() {
       id="contact"
       className="hero-surface relative isolate overflow-hidden border-t border-[#513349] bg-[#1b1224] py-20 sm:py-24"
     >
+      <InteractiveDots />
       {/* Subtle ambient glow */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute -left-32 top-16 -z-10 h-[420px] w-[420px] rounded-full bg-[#9f397e]/10 blur-[120px]"
       />
 
-      <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 sm:px-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16 lg:px-10">
+      <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-12 px-5 sm:px-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16 lg:px-10">
 
         {/* LEFT — CALL TO ACTION */}
         <div className="relative z-10 text-center lg:text-left">
